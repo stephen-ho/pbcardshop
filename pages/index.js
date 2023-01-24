@@ -1,15 +1,26 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import React, { useState } from 'react';
 import { Inter } from '@next/font/google'
 import styles from '../styles/Home.module.css'
 import banner from '../images/banner.webp';
 import logo from '../public/favicon.ico'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+
+  const [email, setEmail] = useState("");
+
+  function handleEmail(e) {
+    setEmail(e.target.value);
+    console.log(email)
+  }
+
   return (
     <>
       <Head>
@@ -49,6 +60,20 @@ export default function Home() {
             <h1>
               Welcome to the world of Pokemon! My name is pa1ntbru5h! People call me pa1nt or PB! This world is inhabited by creatures called Pokemon!
             </h1>
+          </div>
+          <div className="subscribe">
+            <h2>Subscribe for new release info</h2>
+            <form id="emailForm">
+              <TextField
+                id="email"
+                label="Email"
+                variant="outlined"
+                size="small"
+                value={email}
+                onChange={handleEmail}
+              />
+              <Button id="emailSubmit" variant="outlined">Submit</Button>
+            </form>
           </div>
           <div className="footer">
             <a href = "mailto: pbcardshop@gmail.com">pbcardshop@gmail.com</a>
