@@ -21,6 +21,10 @@ export default function Home() {
     console.log(email)
   }
 
+  function handleSubmit() {
+    console.log(`Submitted Email: ${email}`)
+  }
+
   return (
     <>
       <Head>
@@ -72,7 +76,7 @@ export default function Home() {
                 value={email}
                 onChange={handleEmail}
               />
-              <Button id="emailSubmit" variant="outlined">Submit</Button>
+              <Button id="emailSubmit" variant="outlined" onClick={handleSubmit}>Submit</Button>
             </form>
           </div>
           <div className="footer">
